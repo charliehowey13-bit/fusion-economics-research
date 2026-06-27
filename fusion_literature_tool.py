@@ -3,9 +3,7 @@ import pandas as pd
 import time
 from datetime import datetime
 
-# ---------------------------
 # CONFIGURATION
-# ---------------------------
 
 EMAIL = "charliehowey13@gmail.com" 
 
@@ -26,9 +24,7 @@ KEYWORDS = [
 
 BASE_URL = "https://api.openalex.org/works"
 
-# ---------------------------
 # SEARCH OPENALEX
-# ---------------------------
 
 def search_openalex(keyword, limit=50):
 
@@ -65,9 +61,7 @@ def search_openalex(keyword, limit=50):
         return []
 
 
-# ---------------------------
 # CATEGORY DETECTION
-# ---------------------------
 
 def categorize(title):
 
@@ -111,9 +105,7 @@ def score_paper(citations, year):
     return citation_score + recency_bonus
 
 
-# ---------------------------
 # MAIN COLLECTION
-# ---------------------------
 
 all_papers = []
 
@@ -182,9 +174,7 @@ for keyword in KEYWORDS:
 
     time.sleep(0.25)
 
-# ---------------------------
 # DATAFRAMES
-# ---------------------------
 
 df = pd.DataFrame(all_papers)
 
@@ -195,9 +185,7 @@ df = df.sort_values(
 
 top_papers = df.head(100)
 
-# ---------------------------
 # EXPORT EXCEL
-# ---------------------------
 
 output_file = "fusion_literature_review.xlsx"
 
